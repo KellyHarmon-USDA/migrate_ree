@@ -1,0 +1,10 @@
+type: module
+name: Migrate REE
+description: 'Migrates the REE Spotlights from D7 installation into a D8 installation.'
+package: NAL
+# core: 8.x
+dependencies:
+  - drupal:migrate
+  - migrate_plus:migrate_plus
+core: '8.x'
+project: 'migrate_ree'
