@@ -1,5 +1,5 @@
 <?php
-namespace Drupal\migrate_rpd\Plugin\migrate\source;
+namespace Drupal\migrate_ree\Plugin\migrate\source;
 use Drupal\migrate\Plugin\migrate\source\SqlBase;
 /**
  * Source plugin for REE spotlights.
@@ -8,15 +8,15 @@ use Drupal\migrate\Plugin\migrate\source\SqlBase;
  *   id = "spotlights"
  * )
  */
-class CategoryTerm extends SqlBase {
+class Spotlights extends SqlBase {
   /**
    * {@inheritdoc}
    */
   public function query() {
-    $query = $this->select('item', 'c');
-    $query->addField('c', 'ID');
-    $query->addField('c', 'TITLE', 'TItle');
-    $query->addField('c', 'field_item_url', 'URL');
+    $query = $this->select('node', 'n');
+    $query->addField('n', 'nid');
+    $query->addField('n', 'title');
+    $query->condition('type', 'item')
     return $query;
   }
   /**
@@ -24,9 +24,8 @@ class CategoryTerm extends SqlBase {
    */
   public function fields() {
     return [
-      'ID' => $this->t('item ID'),
-      'name' => $this->t('Name'),
-      'description' => $this->t('Description'),
+      'nid' => $this->t('Spotlight node ID'),
+      'title' => $this->t('Title'),
     ];
   }
   /**
@@ -34,9 +33,9 @@ class CategoryTerm extends SqlBase {
    */
   public function getIds() {
     return [
-      'ID' => [
+      'nid' => [
         'type' => 'integer',
-        'alias' => 'c',
+        'alias' => 'n',
       ],
     ];
   }
