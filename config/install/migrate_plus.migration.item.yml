@@ -1,0 +1,19 @@
+# Migration configuration for REE's spotlights (also called Items).
+id: items
+label: Spotlight migration
+migration_group: REE
+source:
+  plugin: spotlights
+destination:
+  plugin: entity:item
+process:
+  name: name
+  id: ID
+  title: title
+  field_item_url: link
+  
+migration_dependencies: {}
+dependencies:
+  enforced:
+    module:
+- migrate_rpd
