@@ -16,4 +16,4 @@ migration_dependencies: {}
 dependencies:
   enforced:
     module:
-- migrate_ree
+      - migrate_ree
