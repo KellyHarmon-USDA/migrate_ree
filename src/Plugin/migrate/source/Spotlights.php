@@ -16,7 +16,7 @@ class Spotlights extends SqlBase {
     $query = $this->select('node', 'n');
     $query->addField('n', 'nid');
     $query->addField('n', 'title');
-    $query->condition('type', 'item')
+    $query->condition('type', 'item');
     return $query;
   }
   /**
